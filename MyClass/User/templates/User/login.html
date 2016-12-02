@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>登录</title>
+        <!-- {% load staticfiles %} -->
+        <script type="text/javascript" src="{% static 'jquery-2.2.0.js' %}"></script>
+        <link rel="stylesheet" href="{% static 'User/css/login.css' %}">
+        <script type="text/javascript" src="{% static 'User/js/login.js' %}"></script>
+    </head>
+    <body>
+        <div id="login_containor">
+            <div id="head">
+
+            </div>
+            <dic id="login_form">
+                <form class="login" action="" method="post">
+                    {% csrf_token %}
+                    <div id="code">
+                        <p><span class="yellow">function</span> <span class="red">Login_Class_4 (){ </span></p>
+                        <p><span class="nest1"> $(' <span class='green'> '#login' </span> ). <span class="blue"> html(</span>" </span></p>
+                        <div id="hint" class="nest2"></div>
+                        <p><span class="nest2">&lt <span class="blue">form </span> action="#" method="<span class="green"> post</span> "&gt </span></p>
+                        <p>
+                            <span class="nest3">&lt <span class="blue">input </span> type=" <span class="green">text </span>" value="</span>
+                            <span><input id="number" type="text" name="number" value="" placeholder="学号"></span>
+                            <span>"&gt</span>
+                        </p>
+                        <p>
+                            <span class="nest3">&lt <span class="blue">input</span> type="<span class="green">password</span>" value="</span>
+                            <span><input id="password" type="password" name="password" value="" placeholder="密码"></span>
+                            <span>"&gt</span>
+                        </p>
+                        <p>
+                            <span class="nest3">&lt <span class="blue">button</span>  type="<span class="green">reset</span>" value="</span>
+                            <input type="reset" name="reset" value="重置">
+                            <span>"&gt</span>
+                        </p>
+                        <p>
+                            <span class="nest3">&lt <span class="blue">button</span> type="<span class="green">submit</span>" value="</span>
+                            <input type="submit" name="submit" value="提交">
+                            <span>"&gt</span>
+                        </p>
+                        <p><span class="nest2">&lt/ <span class="blue">form </span>&gt</span></p>
+                        <!-- <p><span class="nest1"> ") </span></p> -->
+                        <p><span class="blue">)</span><span class="red">}</span></p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </body>
+</html>

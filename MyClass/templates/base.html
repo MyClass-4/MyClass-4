@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>
+            {% block title %} {% endblock %}
+        </title>
+        {% load staticfiles %}
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.0/jquery.js"></script>
+    	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/3.10.1/lodash.js"></script>
+        <link rel="stylesheet" href="{% static 'User/css/index.css' %}">
+        <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700" type="text/css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+        <link rel="stylesheet" href="https://code.getmdl.io/1.2.1/material.indigo-pink.min.css">
+        <script defer src="https://code.getmdl.io/1.2.1/material.min.js"></script>
+
+        {% block css_js_static %}
+
+        {% endblock %}
+    </head>
+
+    <body>
+        <div id="wrapper" class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+
+            {% block header %}
+    		<header class="mdl-layout__header mdl-layout--grey-100 mdl-color-text--grey-600 is-casting-shadow">
+    			<div class="mdl-layout__drawer-button" aria-hidden="true">
+    				<i class="material-icons">menu</i>
+    			</div>
+    			<div class="mdl-layout-spacer"></div>
+    			<div class="mdl-layout__header-row">
+    				<!-- Add spacer, to align navigation to the right -->
+    				<div class="mdl-layout-spacer">
+    				</div>
+    				<!-- top-nav -->
+    				<nav class="mdl-navigation">
+    					<a id="submit-homework-button" class="mdl-navigation__link" href="{% url 'upload_homework' %}">作业提交</a>
+    					<a id="homework-inform-button" class="mdl-navigation__link" href="{% url 'homework_notice' %}">作业通知</a>
+    					<a id="is-finished-button" class="mdl-navigation__link" href="{% url 'achievement' %}">完成情况</a>
+    				</nav>
+                </div>
+    		</header>
+            {% endblock header %}
+
+    		<div class="drawer mdl-layout__drawer mdl-color--blue-grey-900 mdl-color-text--blue-grey-50 is-visible" aria-hidden="false">
+    			<!-- 头像 -->
+    			<header class="avatar-header">
+    				<div id="user-image">
+    					<img src="{{user.avatar.url}}" class="avatar">
+    				</div>
+    				<p class="username">{{request.session.name}}</p>
+    			</header>
+
+    			<nav class="left-navigation mdl-navigation mdl-color--blue-grey-800">
+    				<a id="homepage" class="mdl-navigation__link" href="{% url 'index' %}">
+    					<i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">home</i>主页
+    				</a>
+    				<a id="homework" class="mdl-navigation__link" href="#">
+    					<i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">assignment
+    					</i>作业部落
+    				</a>
+    				<a id="forum" class="mdl-navigation__link" href="#">
+    					<i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">forum
+    					</i>讨论墙
+    				</a>
+                    <a id="forum" class="mdl-navigation__link" href="{% url 'coding' %}">
+                        <i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">forum
+                        </i>前端私房菜
+                    </a>
+                    <a id="forum" class="mdl-navigation__link" href="{% url 'logout' %}">
+    					<i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">forum
+    					</i>登出
+    				</a>
+    			</nav>
+    		</div>
+    		<!-- 主体内容 -->
+            {% block body %}
+            <h1>Under Construction ...</h1>
+            {% endblock body %}
+    	</div>
+            {% block hiddenDiv %}
+                <div id="hiddenArea">
+                    <div id="changeAvatar">
+                        <form action="{% url 'change_avatar' %}" enctype="multipart/form-data" method="post">
+                        {% csrf_token %}
+                            <label>上传头像</label><input type="file" name="avatar">
+                            <input type="submit" name="submit" value="确定">
+                        </form>
+                    </div>
+                </div>
+            {% endblock hiddenDiv %}
+    </body>
+</html>

@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+
+{% block title %} 上传作业 {% endblock %}
+
+{% block css_js_static %}
+    {% load staticfiles %}
+    <link rel="stylesheet" href="{% static 'Homework/css/upload_homework.css' %}" media="screen" title="no title" charset="utf-8" >
+    <script type="text/javascript" src="{% static 'Homework/js/upload_homework.js' %}"></script>
+{% endblock %}
+
+{% block body %}
+<!-- <div id="body_content"> -->
+        
+    <div id="main-body" class="mdl-layout__content mdl-color--grey-100 mdl-color-text--grey-600">
+        <form id="homework-form" class="mdl-color--white mdl-shadow--2dp" action="{% url 'upload_homework' %}" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="form-content" id="hint">
+            </div>
+            <div class="form-content">
+                <label for="courses-name">
+                    课程
+                </label>
+                <select id="courses-select" name="course_name">
+                    {% for course in course_list %}
+                    <option value="{{course.course_name}}">{{course.course_name}}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="form-content">
+                <label for="homework-name">
+                    作业
+                </label>
+                <select id="homework-select" name="homework_name">
+                    {% for homework_type in homework_type_list %}
+                        <option value="{{homework_type.name}}">{{homework_type.name}}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="form-content">
+                <label for="file">
+                    文件上传
+                </label>
+                <input type="file" name="homework" id="homework-file">
+            </div>
+            <div class="form-content">
+                <label for="submit">
+                </label>
+                <input type="submit" name="submit" id="submit" value="提交">
+            </div>
+            <!-- <p><input type="submit" class="mdl-button mdl-js-button mdl-button--raised" name="submit" value="提交"></p> -->
+        </form>
+    </div>
+<!-- </div> -->
+{% endblock %}

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+		#body_layout {
+			height: 700px;
+		}
+
+		#rotate_layout {
+			position: absolute;
+			width: 210px;
+			height: 200px;
+			left: 40%;
+			top: 40%;
+			-webkit-perspective: 1000px;
+		}
+
+		#rotate_content {
+			width: 100%;
+			height: 100%;
+			position: absolute;
+			-webkit-transform-style: preserve-3d;
+			-webkit-transition: all 1s;
+		}
+
+		#rotate_content img {
+			position: absolute;
+			width: 186px;
+			height: 125px;
+			left: 10px;
+			top: 20px;
+			border: 1px solid black;
+		}
+
+		#rotate_content img{
+			opacity: 0.85;
+		}
+		#rotate_content img:nth-child(1) { -webkit-transform: rotateY(0deg) translateZ(300px)}
+		#rotate_content img:nth-child(2) { -webkit-transform: rotateY(40deg) translateZ(300px)}
+		#rotate_content img:nth-child(3) { -webkit-transform: rotateY(80deg) translateZ(300px)}
+		#rotate_content img:nth-child(4) { -webkit-transform: rotateY(120deg) translateZ(300px)}
+		#rotate_content img:nth-child(5) { -webkit-transform: rotateY(160deg) translateZ(300px)}
+		#rotate_content img:nth-child(6) { -webkit-transform: rotateY(200deg) translateZ(300px)}
+		#rotate_content img:nth-child(7) { -webkit-transform: rotateY(240deg) translateZ(300px)}
+		#rotate_content img:nth-child(8) { -webkit-transform: rotateY(280deg) translateZ(300px)}
+		#rotate_content img:nth-child(9) { -webkit-transform: rotateY(320deg) translateZ(300px)}	
+	</style>
+	<script src="//cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
+	<script type="text/javascript">
+		var rotate = {
+		    deg: 0,
+		}
+
+		$(function() {
+		    $('#rotate_content').click(function(){
+		        rotate.deg -= 40;
+		        $(this).css("transform","rotateY("+rotate.deg+"deg)")
+		    });
+
+		    $('#user-image').click(alertBox);
+		});
+	</script>
+</head>
+<body>
+	 <div id="body_layout">
+        <div id="rotate_layout">
+            <div id="rotate_content">
+                <img src="{% static 'common_img/background1.jpg' %}">
+                <img src="{% static 'common_img/background1.jpg' %}">
+                <img src="{% static 'common_img/background1.jpg' %}">
+                <img src="{% static 'common_img/background1.jpg' %}">
+                <img src="{% static 'common_img/background1.jpg' %}">
+                <img src="{% static 'common_img/background1.jpg' %}">
+                <img src="{% static 'common_img/background1.jpg' %}">
+                <img src="{% static 'common_img/background1.jpg' %}">
+                <img src="{% static 'common_img/background1.jpg' %}">
+            </div>
+
+        </div>
+	</div>
+</body>
+</html>

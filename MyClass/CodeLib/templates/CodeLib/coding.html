@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+{% block title %}代码实验室{% endblock %}
+
+{% block css_js_static %}
+    {% load staticfiles %}
+    <link rel="stylesheet" href="{% static 'CodeLib/css/coding.css' %}" media="screen" title="no title" charset="utf-8" >
+    <script type="text/javascript" src="{% static 'CodeLib/js/coding.js' %}"></script>
+{% endblock %}
+
+{% block header %}
+    <header class="mdl-layout__header mdl-layout--grey-100 mdl-color-text--grey-600 is-casting-shadow">
+        <div class="mdl-layout__drawer-button" aria-hidden="true">
+            <i class="material-icons">menu</i>
+        </div>
+        <div class="mdl-layout-spacer"></div>
+            <div class="mdl-layout__header-row">
+                <!-- Add spacer, to align navigation to the right -->
+                <div class="mdl-layout-spacer">
+                </div>
+                <!-- top-nav -->
+                <nav class="mdl-navigation">
+                    <a id="submit-homework-button" class="mdl-navigation__link" href="#">代码修炼场</a>
+                    <a id="homework-inform-button" class="mdl-navigation__link" href="#">代码展示</a>
+                    <a id="is-finished-button" class="mdl-navigation__link" href="#">代码朋友圈</a>
+                </nav>
+            </div>
+    </header>
+{% endblock header %}
+
+{% block body %}
+    <div id="body-containor">
+        <div id="codeArea">
+            <span>尽情书写你的前端代码吧！</span>
+            <form action="" method="post" target="resultCode">
+            {% csrf_token %}
+                <!-- <input type="textarea" name="testCode"> -->
+                <textarea name="testCode" wrap="hard"></textarea>
+                <input type="reset" name="reset" value="重置">
+                <input type="submit" name="submit" value="提交代码">
+            </form>
+        </div>
+ 
+        <div id="result">
+            <iframe name="resultCode" src="{% static 'html/demo.html' %}" frameborder="1"></iframe>
+
+        </div>
+        
+    </div>
+
+{% endblock %}

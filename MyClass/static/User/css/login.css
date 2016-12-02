@@ -1,0 +1,65 @@
+body {
+    background-image: url('/static/common_img/background.jpg');
+    background-size: 100% 100%;
+}
+
+#login_containor {
+    margin-top: 5%;
+    margin-left:auto;
+    margin-right: auto;
+    padding: 20px;
+    background-color: rgba(32, 3, 3, 0.54);
+    width:500px;
+    height: 480px;
+    color:rgba(67, 153, 150, 0.83);
+    font-family:fantasy,  serif;
+}
+
+.nest1 {
+    margin-left: 20px;
+}
+
+.nest2 {
+    margin-left: 50px;
+}
+
+.nest3 {
+    margin-left: 80px;
+}
+
+#number,
+#password {
+    height: 25px;
+    color:rgba(248, 242, 230, 1);
+    width: 130px;
+}
+
+.red {
+    color: rgba(213, 39, 51, 0.93);
+    font-size: 26px;
+    font-family: cursive, sans-serif;
+}
+
+.yellow {
+    color: rgba(176, 176, 48, 1);
+}
+
+.blue {
+    color: #4646a2;
+}
+
+.green {
+    color: rgba(75, 242, 75, 0.9);
+}
+
+input {
+    color: rgba(75, 242, 75, 0.9);
+    background-color: rgba(176, 139, 139, 0.41);
+    border-radius: 15%;
+    border: none;
+}
+
+#hint {
+    color: red;
+    font-size: 30px;
+}

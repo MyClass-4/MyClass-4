@@ -1,0 +1,103 @@
+* {
+
+}
+html, body {
+	height: 100%;
+	width: 100%;
+	font-family: Georgia, "Times New Roman", "Microsoft YaHei", "微软雅黑", STXihei, "华文细黑",
+             serif;
+}
+
+#wrapper > header {
+	color: white;
+}
+
+.avatar-header {
+	height: 200px;
+	text-align: center;
+	line-height: 150px;
+}
+
+.avatar-header img {
+	height: 100px;
+	width: 100px;
+	border-radius: 50%;
+}
+
+.drawer nav {
+	height: 446px;
+}
+
+.drawer nav a i {
+	margin-left: 20px;
+	margin-right: 20px;
+}
+
+
+
+#body_layout {
+	height: 700px;
+	background-image: url('/static/common_img/background1.jpg');
+}
+
+#rotate_layout {
+	position: absolute;
+	width: 210px;
+	height: 200px;
+	left: 40%;
+	top: 40%;
+	-webkit-perspective: 1000px;
+}
+
+#rotate_content {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	-webkit-transform-style: preserve-3d;
+	-webkit-transition: all 1s;
+}
+
+#rotate_content img {
+	position: absolute;
+	width: 186px;
+	height: 125px;
+	left: 10px;
+	top: 20px;
+	border: 1px solid black;
+}
+
+#rotate_content img{
+	opacity: 0.85;
+}
+#rotate_content img:nth-child(1) { -webkit-transform: rotateY(0deg) translateZ(300px)}
+#rotate_content img:nth-child(2) { -webkit-transform: rotateY(40deg) translateZ(300px)}
+#rotate_content img:nth-child(3) { -webkit-transform: rotateY(80deg) translateZ(300px)}
+#rotate_content img:nth-child(4) { -webkit-transform: rotateY(120deg) translateZ(300px)}
+#rotate_content img:nth-child(5) { -webkit-transform: rotateY(160deg) translateZ(300px)}
+#rotate_content img:nth-child(6) { -webkit-transform: rotateY(200deg) translateZ(300px)}
+#rotate_content img:nth-child(7) { -webkit-transform: rotateY(240deg) translateZ(300px)}
+#rotate_content img:nth-child(8) { -webkit-transform: rotateY(280deg) translateZ(300px)}
+#rotate_content img:nth-child(9) { -webkit-transform: rotateY(320deg) translateZ(300px)}
+
+
+#hiddenArea {
+	position:absolute;
+	top: 0px;
+	left: 0px;
+	width:100%;
+	height:100%;
+	display: none;
+	z-index: 0;
+	background-color: rgba(89,89,89, 0.6);
+}
+
+#changeAvatar {
+	position: relative;
+	top: 20%;
+	left: 45%;
+	width: 300px;
+	height: 200px;
+	background-color: white;
+	text-align: center;
+	padding: 5px;
+}
